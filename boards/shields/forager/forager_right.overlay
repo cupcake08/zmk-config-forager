@@ -20,3 +20,29 @@
     , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
     ;
  };
+/*
+ * Soft-off wake key: the inner thumb key (row 3 P0.02, column 0 P1.14).
+ * The gpio-keys node only names the pin for the waker; it stays disabled so
+ * the Zephyr gpio-keys driver does not fight the matrix scan for it.
+ */
+/ {
+    wake_keys {
+        compatible = "gpio-keys";
+        status = "disabled";
+        wake_key: wake_key {
+            gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+        };
+    };
+
+    wakeup_scan: wakeup_scan {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&wake_key>;
+        wakeup-source;
+        extra-gpios = <&gpio1 14 GPIO_ACTIVE_HIGH>;
+    };
+
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_scan>;
+    };
+};

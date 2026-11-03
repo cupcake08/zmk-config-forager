@@ -5,12 +5,14 @@ manifest:
     - name: caksoylar
       url-base: https://github.com/caksoylar
   projects:
+    # ZMK main (Zephyr 4.1, Oct 2026) pinned to a commit so rebuilds stay
+    # reproducible. Bump both SHAs together when upgrading.
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85
       import: app/west.yml
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main
+      revision: e6b467792a1dabef8cfa5c9fd26bfefc9c16662b
   self:
     path: config

@@ -9,6 +9,14 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_STUDIO
     default y
 
+# Report the right half's battery to the host too
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
+choice RGBLED_WIDGET_BATTERY_SHOW
+    default RGBLED_WIDGET_BATTERY_SHOW_PERIPHERALS
+endchoice
+
 endif
 
 if SHIELD_FORAGER_LEFT || SHIELD_FORAGER_RIGHT
