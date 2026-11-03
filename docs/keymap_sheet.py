@@ -110,7 +110,7 @@ INFO = """
   <table>
     <tr><td><span class="pill">15 min idle</span></td><td>Each half sleeps by itself. Any key wakes it.</td></tr>
     <tr><td><span class="pill dn">Fn + B</span></td><td>Hold 1 s: both halves fully off (bag, travel).</td></tr>
-    <tr><td><span class="pill">inner thumbs</span></td><td>Press the inner thumb key on each half to turn it on.</td></tr>
+    <tr><td><span class="pill">⇧ / Space</span></td><td>After off: ⇧ turns the left half on, Space the right.</td></tr>
   </table>
   <h3>Flashing <span>Fn = hold ⇧, then hold Space; hold the key 1 s</span></h3>
   <table>
