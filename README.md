@@ -55,7 +55,7 @@ firmware handles power instead.
 | --- | --- | --- | --- |
 | Idle | 30 s without a key press | Any key, instantly | Low; Bluetooth stays connected |
 | Deep sleep | 15 min without a key press, automatic | Any key; reconnects in a few seconds | Very low |
-| Off (soft off) | Fn + B held 1 s; both halves go off | Inner thumb key on each half | Lowest, close to a real switch |
+| Off (soft off) | Fn + B held 1 s, then let go of everything; both halves go off 2 s later | ⇧ wakes the left half, Space the right | Lowest, close to a real switch |
 
 - Day to day you never need to do anything: walk away and the halves sleep on their own.
 - Use **off** when the keyboard goes in a bag or won't be used for days. In deep

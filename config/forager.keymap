@@ -159,7 +159,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&soft_off>, <&none>;
+            bindings = <&soft_off_later>, <&none>;
         };
         boot_hold: bootloader_hold {
             compatible = "zmk,behavior-hold-tap";
@@ -192,6 +192,20 @@
     };
 
     macros {
+        // Off waits until the key is let go, then 2 s more. ⇧ and Space hold
+        // Fn and are also the wake keys, and a wake key still down at
+        // power-off switches that half straight back on.
+        soft_off_later: soft_off_later {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <2000>;
+            tap-ms = <10>;
+            bindings
+                = <&macro_pause_for_release>
+                , <&macro_tap &none>
+                , <&macro_tap &soft_off>
+                ;
+        };
         ai_hold: ai_hold {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
