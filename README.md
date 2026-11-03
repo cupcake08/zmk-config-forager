@@ -10,6 +10,19 @@ ZMK firmware for my [Forager](https://github.com/carrefinho/forager), forked fro
   maps each letter to the code that types it.
 - Keymap tuned for AI agents in the terminal and the browser: `config/forager.keymap`.
 
+## Cheat sheet
+
+[![Forager keymap cheat sheet](docs/forager_keymap_a4.png)](docs/forager_keymap_a4.pdf)
+
+Printable A4 landscape PDF, in colour: [docs/forager_keymap_a4.pdf](docs/forager_keymap_a4.pdf).
+After changing the keymap, update `docs/keymap_sheet.py` and regenerate it:
+
+```sh
+python3 docs/keymap_sheet.py
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer \
+  --print-to-pdf=docs/forager_keymap_a4.pdf "file://$PWD/docs/forager_keymap_a4.html"
+```
+
 ## Layers
 
 | Layer | How | What |
@@ -31,13 +44,23 @@ Dictation key: set System Settings › Keyboard › Dictation › Shortcut to
 
 ## Power
 
-There is no power switch or reachable reset button, so:
+The Forager has no power switch, and its reset buttons sit inside the case, so the
+firmware handles power instead.
 
-- **Off:** hold Backspace + Space thumbs and hold B for 1 s. Both halves switch off.
-- **On:** press the inner thumb key on each half.
-- **Sleep:** each half sleeps after 30 min idle; any key wakes it.
-- **Reset / bootloader:** Fn layer, hold 1 s. Left half: Z bootloader, X reset.
-  Right half: `/` bootloader, `.` reset.
+| State | How you get there | How you leave it | Battery use |
+| --- | --- | --- | --- |
+| Idle | 30 s without a key press | Any key, instantly | Low; Bluetooth stays connected |
+| Deep sleep | 30 min without a key press, automatic | Any key; reconnects in a few seconds | Very low |
+| Off (soft off) | Fn + B held 1 s; both halves go off | Inner thumb key on each half | Lowest, close to a real switch |
+
+- Day to day you never need to do anything: walk away and the halves sleep on their own.
+- Use **off** when the keyboard goes in a bag or won't be used for days. In deep
+  sleep any squeezed key wakes it; when it's off only the inner thumb keys do.
+- Fn = hold the Backspace and Space thumbs together.
+
+Reset and bootloader keys (Fn layer, hold 1 s): left half Z bootloader, X reset;
+right half `/` bootloader, `.` reset. A right-half key only works while the two
+halves are connected. If a half is unreachable, double-tap the XIAO reset button.
 
 ## Flashing
 
