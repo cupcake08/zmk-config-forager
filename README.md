@@ -27,18 +27,21 @@ python3 docs/keymap_sheet.py
 
 | Layer | How | What |
 | --- | --- | --- |
-| Base | — | Colemak, `'` top right, home-row ⌃ ⌥ ⌘ on R S T / N E I |
+| Base | — | Colemak, ⌫ top right, home-row ⌃ ⌥ ⌘ on R S T / N E I |
 | Caps | tap the ⇧ thumb twice | caps word; Space, Enter or the ⇧ thumb ends it |
 | Nav | hold Space | arrows, line/word jumps, page, scroll, clicks, held mods |
 | Sym | hold Enter | digits, shifted digits, ``` ` ``` ``` `` ` `` ``` code fence, `_ \| ~ - = [ ] \` |
 | AI | hold the ⇧ thumb (¼ s) | tabs, clipboard, ⌘Tab switcher, agent keys (Esc, ⇧Tab, ⌃C, ⌃V image, Esc Esc, ⌃R, ⇧⏎, ⌘⏎), dictation |
 | Fn | hold ⇧, then hold Space | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
 
-Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`.
+Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`,
+U+Y `'` (tap ⇧ first for `"`).
 
-Thumbs, left to right: ⌫ (hold repeats, ⇧⌫ deletes a word), ⇧ (tap for one
+Thumbs, left to right: unused (the switch on my board is dead), ⇧ (tap for one
 capital, hold for AI), Space (hold for Nav), Enter (hold for Sym). While AI is held
-Space stays put (hold it for Fn) and the Enter and ⌫ thumbs become ⌘⌫ (delete line).
+Space stays put (hold it for Fn) and the Enter thumb becomes ⌘⌫ (delete line).
+
+⌫ is the top-right key: hold to repeat, ⇧⌫ deletes a word.
 
 App switcher: hold the ⇧ thumb, tap T to step forward (S steps back), release
 the thumb to switch.

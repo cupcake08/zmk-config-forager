@@ -5,6 +5,9 @@
  * Layers: Base, Caps (caps word), Nav (hold Space), Sym (hold Enter),
  * AI (hold the shift thumb) and Fn (hold the shift thumb + Space).
  *
+ * The left outer thumb (30) has a dead switch on this board, so it is
+ * unused and Backspace sits top right (9) instead.
+ *
  * Key positions:
  *    0  1  2  3  4     5  6  7  8  9
  *   10 11 12 13 14    15 16 17 18 19
@@ -301,6 +304,13 @@
             bindings = <&kp LG(CK_V)>;
             layers = <BASE CAPS>;
         };
+        combo_quote {
+            timeout-ms = <35>;
+            require-prior-idle-ms = <150>;
+            key-positions = <7 8>;
+            bindings = <&kp SQT>;
+            layers = <BASE CAPS>;
+        };
         combo_semi {
             timeout-ms = <35>;
             require-prior-idle-ms = <150>;
@@ -331,10 +341,10 @@
         base {
             display-name = "Base";
             bindings = <
-            &kp CK_Q        &kp CK_W        &kp CK_F        &kp CK_P        &kp CK_G            &kp CK_J        &kp CK_L        &kp CK_U        &kp CK_Y        &kp SQT
+            &kp CK_Q        &kp CK_W        &kp CK_F        &kp CK_P        &kp CK_G            &kp CK_J        &kp CK_L        &kp CK_U        &kp CK_Y        &bspc_word
             &kp CK_A        &hml LCTRL CK_R &hml LALT CK_S  &hml LGUI CK_T  &kp CK_D            &kp CK_H        &hmr LGUI CK_N  &hmr LALT CK_E  &hmr LCTRL CK_I &kp CK_O
             &kp CK_Z        &kp CK_X        &kp CK_C        &kp CK_V        &kp CK_B            &kp CK_K        &kp CK_M        &kp COMMA       &kp DOT         &kp FSLH
-                                                            &bspc_word      &ai_shift 0 0       &nav_spc NAV SPACE &sym_ret SYM RET
+                                                            &none           &ai_shift 0 0       &nav_spc NAV SPACE &sym_ret SYM RET
             >;
         };
 
@@ -374,7 +384,7 @@
             &kp LG(CK_W)    &kp LG(LS(LBKT)) &kp LG(LS(RBKT)) &kp LG(CK_T)  &kp LG(LS(CK_T))    &kp LG(LBKT)    &kp LG(RBKT)    &kp UP          &kp LG(LS(CK_Z)) &kp LG(CK_R)
             &kp LG(CK_A)    &kp ESC         &kp LS(TAB)     &app_next       &kp LG(GRAVE)       &kp LC(CK_C)    &kp LG(RET)     &kp DOWN        &kp LC(CK_V)    &kp LG(CK_K)
             &kp LG(CK_Z)    &kp LG(CK_X)    &kp LG(CK_C)    &kp LG(CK_V)    &kp LG(LC(LS(N4)))  &esc_esc        &kp LC(CK_R)    &kp LS(RET)     &kp LG(SPACE)   &dictate
-                                                            &kp LG(BSPC)    &trans              &fn_spc NAV SPACE &kp LG(BSPC)
+                                                            &none           &trans              &fn_spc NAV SPACE &kp LG(BSPC)
             >;
         };
 

@@ -18,11 +18,11 @@ THUMBS = [(400, 350, 25, 450, 400), (500, 370, 25, 450, 400),
 # kind: ag agent, br browser, md modifier, dn power/firmware, hd held, ly layer key
 LAYERS = [
     ("Base", "plain Colemak", "base", [
-        ["Q", "W", "F", "P", "G", "J", "L", "U", "Y", ("'", '"')],
+        ["Q", "W", "F", "P", "G", "J", "L", "U", "Y", ("⌫", "hold repeats")],
         ["A", ("R", "⌃ hold", "md"), ("S", "⌥ hold", "md"), ("T", "⌘ hold", "md"), "D",
          "H", ("N", "⌘ hold", "md"), ("E", "⌥ hold", "md"), ("I", "⌃ hold", "md"), "O"],
         ["Z", "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "?")],
-        [("⌫", "hold repeats"), ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
+        [None, ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
     ]),
     ("AI", "hold ⇧ thumb", "ai", [
         [("⌘W", "close tab", "br"), ("⌘⇧[", "prev tab", "br"), ("⌘⇧]", "next tab", "br"), ("⌘T", "new tab", "br"), ("⌘⇧T", "reopen", "br"),
@@ -31,7 +31,7 @@ LAYERS = [
          ("⌃C", "cancel", "ag"), ("⌘⏎", "send", "ag"), ("↓", "next prompt", "ag"), ("⌃V", "paste image", "ag"), ("⌘K", "palette")],
         [("⌘Z", "undo"), ("⌘X", "cut"), ("⌘C", "copy"), ("⌘V", "paste"), ("⌘⌃⇧4", "snip", "ag"),
          ("Esc Esc", "rewind", "ag"), ("⌃R", "history", "ag"), ("⇧⏎", "newline", "ag"), ("⌘Space", "launcher"), ("Dictate", "voice", "ag")],
-        [("⌘⌫", "delete line"), ("", "held", "hd"), ("Space", "hold: Fn", "ly-fn"), ("⌘⌫", "delete line")],
+        [None, ("", "held", "hd"), ("Space", "hold: Fn", "ly-fn"), ("⌘⌫", "delete line")],
     ]),
     ("Nav", "hold Space thumb", "nav", [
         [("Esc",), ("⌘[", "back", "br"), ("Scroll", "up", "br"), ("⌘]", "forward", "br"), None,
@@ -40,13 +40,13 @@ LAYERS = [
          ("PgDn",), ("←",), ("↓",), ("→",), ("⏎",)],
         [None, ("Click", "left"), ("Scroll", "down", "br"), ("Click", "right"), None,
          ("⌘↑", "top"), ("⌥←", "word"), ("⌘↓", "bottom"), ("⌥→", "word"), None],
-        [("⌫", ""), ("⇧", "hold: Fn", "ly-fn"), ("", "held", "hd"), None],
+        [None, ("⇧", "hold: Fn", "ly-fn"), ("", "held", "hd"), None],
     ]),
     ("Sym", "hold ⏎ thumb", "sym", [
         ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
         ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"],
         ["`", ("```", "code block"), "_", "|", "~", "-", "=", "[", "]", "\\"],
-        [("⌫", ""), ("⇧", ""), None, ("", "held", "hd")],
+        [None, ("⇧", ""), None, ("", "held", "hd")],
     ]),
     ("Fn", "hold ⇧ + Space", "fn", [
         [("BT 1",), ("BT 2",), ("BT 3",), ("BT 4",), ("BT 5",), ("⏮",), ("⏯",), ("⏭",), ("Mute",), ("Lock", "⌃⌘Q")],
@@ -104,7 +104,7 @@ INFO = """
   <div class="combos">
     <div><b>W + F</b> Esc</div><div><b>F + P</b> Tab</div><div><b>Z + X</b> ⌘X cut</div>
     <div><b>X + C</b> ⌘C copy</div><div><b>C + V</b> ⌘V paste</div><div><b>, + .</b> ; semicolon</div>
-    <div><b>. + /</b> : colon</div><div><b>⇧ ⇧</b> caps word</div>
+    <div><b>. + /</b> : colon</div><div><b>U + Y</b> ' quote</div><div><b>⇧ ⇧</b> caps word</div>
   </div>
   <h3>Power <span>no switch: sleep is automatic, off is a key</span></h3>
   <table>
