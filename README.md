@@ -32,13 +32,13 @@ python3 docs/keymap_sheet.py
 | Nav | hold Space | arrows, line/word jumps, page, scroll, clicks, held mods |
 | Sym | hold Enter | digits, shifted digits, ``` ` ``` ``` `` ` `` ``` code fence, `_ \| ~ - = [ ] \` |
 | AI | hold the ⇧ thumb (¼ s) | tabs, clipboard, ⌘Tab switcher, agent keys (Esc, ⇧Tab, ⌃C, ⌃V image, Esc Esc, ⌃R, ⇧⏎, ⌘⏎), dictation |
-| Fn | hold ⇧, then the right inner thumb | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
+| Fn | hold ⇧, then hold Space | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
 
 Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`.
 
 Thumbs, left to right: ⌫ (hold repeats, ⇧⌫ deletes a word), ⇧ (tap for one
-capital, hold for AI), Enter (hold for Sym), Space (hold for Nav). While AI is held
-the right thumbs are Space (hold for Fn) and ⌘⌫ (delete line); so is the ⌫ key.
+capital, hold for AI), Space (hold for Nav), Enter (hold for Sym). While AI is held
+Space stays put (hold it for Fn) and the Enter and ⌫ thumbs become ⌘⌫ (delete line).
 
 App switcher: hold the ⇧ thumb, tap T to step forward (S steps back), release
 the thumb to switch.
@@ -60,7 +60,7 @@ firmware handles power instead.
 - Day to day you never need to do anything: walk away and the halves sleep on their own.
 - Use **off** when the keyboard goes in a bag or won't be used for days. In deep
   sleep any squeezed key wakes it; when it's off only the inner thumb keys do.
-- Fn = hold the ⇧ thumb, then hold the right inner thumb.
+- Fn = hold the ⇧ thumb, then hold Space.
 
 Reset and bootloader keys (Fn layer, hold 1 s): left half Z bootloader, X reset;
 right half `/` bootloader, `.` reset. A right-half key only works while the two

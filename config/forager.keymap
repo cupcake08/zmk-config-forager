@@ -93,7 +93,7 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Right inner thumb: tap Enter, hold Sym. Hold-preferred, so a key
+        // Right outer thumb: tap Enter, hold Sym. Hold-preferred, so a key
         // pressed during the hold always gives a symbol and never sends a
         // half-written prompt.
         sym_ret: sym_enter {
@@ -111,7 +111,7 @@
             bindings = <&mo>, <&caps_ret>;
         };
 
-        // Right outer thumb: tap Space, hold Nav
+        // Right inner thumb: tap Space, hold Nav
         nav_spc: nav_space {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -320,7 +320,7 @@
             &kp CK_Q        &kp CK_W        &kp CK_F        &kp CK_P        &kp CK_G            &kp CK_J        &kp CK_L        &kp CK_U        &kp CK_Y        &kp SQT
             &kp CK_A        &hml LCTRL CK_R &hml LALT CK_S  &hml LGUI CK_T  &kp CK_D            &kp CK_H        &hmr LGUI CK_N  &hmr LALT CK_E  &hmr LCTRL CK_I &kp CK_O
             &kp CK_Z        &kp CK_X        &kp CK_C        &kp CK_V        &kp CK_B            &kp CK_K        &kp CK_M        &kp COMMA       &kp DOT         &kp FSLH
-                                                            &bspc_word      &ai_shift 0 0       &sym_ret SYM RET &nav_spc NAV SPACE
+                                                            &bspc_word      &ai_shift 0 0       &nav_spc NAV SPACE &sym_ret SYM RET
             >;
         };
 
@@ -330,7 +330,7 @@
             &kp LS(CK_Q)    &kp LS(CK_W)    &kp LS(CK_F)    &kp LS(CK_P)    &kp LS(CK_G)        &kp LS(CK_J)    &kp LS(CK_L)    &kp LS(CK_U)    &kp LS(CK_Y)    &trans
             &kp LS(CK_A)    &kp LS(CK_R)    &kp LS(CK_S)    &kp LS(CK_T)    &kp LS(CK_D)        &kp LS(CK_H)    &kp LS(CK_N)    &kp LS(CK_E)    &kp LS(CK_I)    &kp LS(CK_O)
             &kp LS(CK_Z)    &kp LS(CK_X)    &kp LS(CK_C)    &kp LS(CK_V)    &kp LS(CK_B)        &kp LS(CK_K)    &kp LS(CK_M)    &trans          &trans          &trans
-                                                            &trans          &tog CAPS           &sym_caps SYM 0 &nav_caps NAV 0
+                                                            &trans          &tog CAPS           &nav_caps NAV 0 &sym_caps SYM 0
             >;
         };
 

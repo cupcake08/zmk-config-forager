@@ -22,7 +22,7 @@ LAYERS = [
         ["A", ("R", "⌃ hold", "md"), ("S", "⌥ hold", "md"), ("T", "⌘ hold", "md"), "D",
          "H", ("N", "⌘ hold", "md"), ("E", "⌥ hold", "md"), ("I", "⌃ hold", "md"), "O"],
         ["Z", "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "?")],
-        [("⌫", "hold repeats"), ("⇧", "hold AI", "ly-ai"), ("⏎", "hold Sym", "ly-sym"), ("Space", "hold Nav", "ly-nav")],
+        [("⌫", "hold repeats"), ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
     ]),
     ("AI", "hold ⇧ thumb", "ai", [
         [("⌘W", "close tab", "br"), ("⌘⇧[", "prev tab", "br"), ("⌘⇧]", "next tab", "br"), ("⌘T", "new tab", "br"), ("⌘⇧T", "reopen", "br"),
@@ -40,15 +40,15 @@ LAYERS = [
          ("PgDn",), ("←",), ("↓",), ("→",), ("⏎",)],
         [None, ("Click", "left"), ("Scroll", "down", "br"), ("Click", "right"), None,
          ("⌘↑", "top"), ("⌥←", "word"), ("⌘↓", "bottom"), ("⌥→", "word"), None],
-        [("⌫", ""), ("⇧", "hold: Fn", "ly-fn"), None, ("", "held", "hd")],
+        [("⌫", ""), ("⇧", "hold: Fn", "ly-fn"), ("", "held", "hd"), None],
     ]),
     ("Sym", "hold ⏎ thumb", "sym", [
         ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
         ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"],
         ["`", ("```", "code block"), "_", "|", "~", "-", "=", "[", "]", "\\"],
-        [("⌫", ""), ("⇧", ""), ("", "held", "hd"), None],
+        [("⌫", ""), ("⇧", ""), None, ("", "held", "hd")],
     ]),
-    ("Fn", "hold ⇧, then right inner", "fn", [
+    ("Fn", "hold ⇧ + Space", "fn", [
         [("BT 1",), ("BT 2",), ("BT 3",), ("BT 4",), ("BT 5",), ("⏮",), ("⏯",), ("⏭",), ("Mute",), ("Lock", "⌃⌘Q")],
         [("BT clear", "1 s", "dn"), ("USB/BT", "1 s", "dn"), ("Battery", "LED"), ("Link", "LED"), ("Studio", "unlock"),
          ("Bright −",), ("Vol −",), ("Vol +",), ("Bright +",), ("Mission", "Control")],
@@ -112,7 +112,7 @@ INFO = """
     <tr><td><span class="pill dn">Fn + B</span></td><td>Hold 1 s: both halves fully off (bag, travel).</td></tr>
     <tr><td><span class="pill">inner thumbs</span></td><td>Press the inner thumb key on each half to turn it on.</td></tr>
   </table>
-  <h3>Flashing <span>Fn = hold ⇧, then the right inner thumb; hold the key 1 s</span></h3>
+  <h3>Flashing <span>Fn = hold ⇧, then hold Space; hold the key 1 s</span></h3>
   <table>
     <tr><td><span class="pill dn">Fn + Z</span></td><td>Bootloader, left</td><td><span class="pill dn">Fn + /</span></td><td>Bootloader, right</td></tr>
     <tr><td><span class="pill dn">Fn + X</span></td><td>Reset, left</td><td><span class="pill dn">Fn + .</span></td><td>Reset, right</td></tr>
