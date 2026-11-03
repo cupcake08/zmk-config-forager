@@ -37,7 +37,8 @@ python3 docs/keymap_sheet.py
 Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`,
 U+Y `'` (tap ⇧ first for `"`).
 
-Thumbs, left to right: unused (the switch on my board is dead), ⇧ (tap for one
+Thumbs, left to right: `*` test key (the switch on my board is dead; it
+only shows whether a repair worked), ⇧ (tap for one
 capital, hold for AI), Space (hold for Nav), Enter (hold for Sym). While AI is held
 Space stays put (hold it for Fn) and the Enter thumb becomes ⌘⌫ (delete line).
 

@@ -22,7 +22,7 @@ LAYERS = [
         ["A", ("R", "⌃ hold", "md"), ("S", "⌥ hold", "md"), ("T", "⌘ hold", "md"), "D",
          "H", ("N", "⌘ hold", "md"), ("E", "⌥ hold", "md"), ("I", "⌃ hold", "md"), "O"],
         ["Z", "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "?")],
-        [None, ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
+        [("*", "test key"), ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
     ]),
     ("AI", "hold ⇧ thumb", "ai", [
         [("⌘W", "close tab", "br"), ("⌘⇧[", "prev tab", "br"), ("⌘⇧]", "next tab", "br"), ("⌘T", "new tab", "br"), ("⌘⇧T", "reopen", "br"),
