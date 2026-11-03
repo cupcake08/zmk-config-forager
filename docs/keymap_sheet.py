@@ -21,7 +21,7 @@ LAYERS = [
         ["Q", "W", "F", "P", "G", "J", "L", "U", "Y", ("*", "test key")],
         ["A", ("R", "⌃ hold", "md"), ("S", "⌥ hold", "md"), ("T", "⌘ hold", "md"), "D",
          "H", ("N", "⌘ hold", "md"), ("E", "⌥ hold", "md"), ("I", "⌃ hold", "md"), "O"],
-        ["Z", "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "?")],
+        [("Z", "⇧ hold", "md"), "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "⇧ hold", "md")],
         [("*", "test key"), ("⇧", "hold AI", "ly-ai"), ("Space", "hold Nav", "ly-nav"), ("⏎", "hold Sym", "ly-sym")],
     ]),
     ("AI", "hold ⇧ thumb", "ai", [
@@ -104,7 +104,7 @@ INFO = """
   <div class="combos">
     <div><b>W + F</b> Esc</div><div><b>F + P</b> Tab</div><div><b>Z + X</b> ⌘X cut</div>
     <div><b>X + C</b> ⌘C copy</div><div><b>C + V</b> ⌘V paste</div><div><b>, + .</b> ; semicolon</div>
-    <div><b>. + /</b> : colon</div><div><b>U + Y</b> ' quote</div><div><b>L + U</b> ⌫ (hold repeats)</div><div><b>⇧ ⇧</b> caps word</div>
+    <div><b>. + /</b> : colon</div><div><b>U + Y</b> ' (hold Z: ")</div><div><b>L + U</b> ⌫ (hold Z: word)</div><div><b>⇧ ⇧</b> caps word</div>
   </div>
   <h3>Power <span>no switch: sleep is automatic, off is a key</span></h3>
   <table>

@@ -27,7 +27,7 @@ python3 docs/keymap_sheet.py
 
 | Layer | How | What |
 | --- | --- | --- |
-| Base | — | Colemak, ⌫ on L+U, home-row ⌃ ⌥ ⌘ on R S T / N E I |
+| Base | — | Colemak, ⌫ on L+U, home-row ⌃ ⌥ ⌘ on R S T / N E I, hold Z or / for ⇧ |
 | Caps | tap the ⇧ thumb twice | caps word; Space, Enter or the ⇧ thumb ends it |
 | Nav | hold Space | arrows, line/word jumps, page, scroll, clicks, held mods, ⌘R reload, Del |
 | Sym | hold Enter | digits (0 on the ⇧ thumb), shifted digits, ``` ` ``` ``` `` ` `` ``` code fence, `_ \| ~ - = [ ] \` |
@@ -35,13 +35,17 @@ python3 docs/keymap_sheet.py
 | Fn | hold ⇧, then hold Space | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
 
 Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`,
-U+Y `'` (tap ⇧ first for `"`), L+U ⌫.
+U+Y `'` (hold Z for `"`), L+U ⌫ (hold Z to delete a word).
 
 Thumbs, left to right: `*` test key, ⇧ (tap for one
 capital, hold for AI), Space (hold for Nav), Enter (hold for Sym). While AI is held
 Space stays put (hold it for Fn) and the Enter thumb becomes ⌘⌫ (delete line).
 
-⌫ is L and U pressed together: hold both to repeat, ⇧ first deletes a word.
+⌫ is L and U pressed together: hold both to repeat, hold Z first to delete a word.
+
+Holding Z or / is a normal held shift: Z for right-hand keys and combos, / for
+left-hand keys (same-hand presses stay letters, like the home-row mods). Tapping
+the ⇧ thumb still capitalises the next key.
 
 The left outer thumb and the top-right key have dead switches on my board.
 Both type `*` on every layer, only so a repaired switch is easy to test.

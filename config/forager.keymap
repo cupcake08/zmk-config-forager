@@ -42,8 +42,9 @@
 
 / {
     behaviors {
-        // Home-row mods only fire with a key from the other hand or a thumb,
-        // and never right after typing, so fast rolls stay letters.
+        // Home-row mods (and the shift holds on Z and /) only fire with a key
+        // from the other hand or a thumb, and never right after typing, so
+        // fast rolls stay letters.
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -353,7 +354,7 @@
             bindings = <
             &kp CK_Q        &kp CK_W        &kp CK_F        &kp CK_P        &kp CK_G            &kp CK_J        &kp CK_L        &kp CK_U        &kp CK_Y        &kp STAR
             &kp CK_A        &hml LCTRL CK_R &hml LALT CK_S  &hml LGUI CK_T  &kp CK_D            &kp CK_H        &hmr LGUI CK_N  &hmr LALT CK_E  &hmr LCTRL CK_I &kp CK_O
-            &kp CK_Z        &kp CK_X        &kp CK_C        &kp CK_V        &kp CK_B            &kp CK_K        &kp CK_M        &kp COMMA       &kp DOT         &kp FSLH
+            &hml LSHFT CK_Z &kp CK_X        &kp CK_C        &kp CK_V        &kp CK_B            &kp CK_K        &kp CK_M        &kp COMMA       &kp DOT         &hmr RSHFT FSLH
                                                             &kp STAR        &ai_shift 0 0       &nav_spc NAV SPACE &sym_ret SYM RET
             >;
         };
