@@ -3,7 +3,7 @@
  *
  * Plain Colemak through the Mac's Colemak input source (see mac_colemak.h).
  * Layers: Base, Caps (caps word), Nav (hold Space), Sym (hold Enter),
- * AI (hold Backspace) and Fn (hold Backspace + Space).
+ * AI (hold the shift thumb) and Fn (hold the shift thumb + Space).
  *
  * Key positions:
  *    0  1  2  3  4     5  6  7  8  9
@@ -71,16 +71,26 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        // Left outer thumb: tap Backspace, hold AI. Mid-typing it is always
-        // Backspace so a stray hold can't fire ⌘ shortcuts.
-        ai_bspc: ai_backspace {
+        // Left inner thumb: tap for one-shot shift (twice for caps), hold
+        // 1/4 s for AI. Tap-preferred, so only time picks AI: shift pressed
+        // together with a letter always gives a capital, never a ⌘ shortcut.
+        ai_shift: ai_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            bindings = <&ai_hold>, <&bspc_word>;
+            bindings = <&ai_hold>, <&smart_shift>;
+        };
+
+        // Space on the AI layer: hold for Fn. Hold-preferred with no idle
+        // check, so it reaches Fn even when pressed right after the AI thumb.
+        fn_spc: fn_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
         };
 
         // Right inner thumb: tap Enter, hold Sym. Hold-preferred, so a key
@@ -121,8 +131,8 @@
             bindings = <&mo>, <&caps_spc>;
         };
 
-        // Left inner thumb: one-shot shift, tap twice for caps word. Caps
-        // word is a layer because ZMK's &caps_word won't shift CK_O (SEMI).
+        // One-shot shift, tap twice for caps word. Caps word is a layer
+        // because ZMK's &caps_word won't shift CK_O (SEMI).
         smart_shift: smart_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -142,7 +152,8 @@
             toggle-mode = "off";
         };
 
-        // Power and firmware keys need a 1 s hold
+        // Power, firmware and connection keys need a 1 s hold, so a slip
+        // on Fn can't switch the output or drop a pairing
         off_hold: soft_off_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -163,6 +174,20 @@
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
             bindings = <&sys_reset>, <&none>;
+        };
+        bt_hold: bluetooth_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bt>, <&none>;
+        };
+        out_hold: output_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&out>, <&none>;
         };
     };
 
@@ -295,7 +320,7 @@
             &kp CK_Q        &kp CK_W        &kp CK_F        &kp CK_P        &kp CK_G            &kp CK_J        &kp CK_L        &kp CK_U        &kp CK_Y        &kp SQT
             &kp CK_A        &hml LCTRL CK_R &hml LALT CK_S  &hml LGUI CK_T  &kp CK_D            &kp CK_H        &hmr LGUI CK_N  &hmr LALT CK_E  &hmr LCTRL CK_I &kp CK_O
             &kp CK_Z        &kp CK_X        &kp CK_C        &kp CK_V        &kp CK_B            &kp CK_K        &kp CK_M        &kp COMMA       &kp DOT         &kp FSLH
-                                                            &ai_bspc 0 0    &smart_shift        &sym_ret SYM RET &nav_spc NAV SPACE
+                                                            &bspc_word      &ai_shift 0 0       &sym_ret SYM RET &nav_spc NAV SPACE
             >;
         };
 
@@ -324,7 +349,7 @@
             bindings = <
             &kp N1          &kp N2          &kp N3          &kp N4          &kp N5              &kp N6          &kp N7          &kp N8          &kp N9          &kp N0
             &kp EXCL        &kp AT          &kp HASH        &kp DLLR        &kp PRCNT           &kp CARET       &kp AMPS        &kp STAR        &kp LPAR        &kp RPAR
-            &kp GRAVE       &code_fence     &kp CK_COLON    &kp CK_SEMI     &kp TILDE           &kp MINUS       &kp EQUAL       &kp LBKT        &kp RBKT        &kp BSLH
+            &kp GRAVE       &code_fence     &kp UNDER       &kp PIPE        &kp TILDE           &kp MINUS       &kp EQUAL       &kp LBKT        &kp RBKT        &kp BSLH
                                                             &trans          &trans              &trans          &trans
             >;
         };
@@ -335,7 +360,7 @@
             &kp LG(CK_W)    &kp LG(LS(LBKT)) &kp LG(LS(RBKT)) &kp LG(CK_T)  &kp LG(LS(CK_T))    &kp LG(LBKT)    &kp LG(RBKT)    &kp UP          &kp LG(LS(CK_Z)) &kp LG(CK_R)
             &kp LG(CK_A)    &kp ESC         &kp LS(TAB)     &app_next       &kp LG(GRAVE)       &kp LC(CK_C)    &kp LG(RET)     &kp DOWN        &kp LC(CK_V)    &kp LG(CK_K)
             &kp LG(CK_Z)    &kp LG(CK_X)    &kp LG(CK_C)    &kp LG(CK_V)    &kp LG(LC(LS(N4)))  &esc_esc        &kp LC(CK_R)    &kp LS(RET)     &kp LG(SPACE)   &dictate
-                                                            &trans          &trans              &kp LG(BSPC)    &trans
+                                                            &kp LG(BSPC)    &trans              &fn_spc NAV SPACE &kp LG(BSPC)
             >;
         };
 
@@ -343,7 +368,7 @@
             display-name = "Fn";
             bindings = <
             &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &kp C_PREV      &kp C_PP        &kp C_NEXT      &kp C_MUTE      &kp LC(LG(CK_Q))
-            &bt BT_CLR      &out OUT_TOG    &ind_bat        &ind_con        &studio_unlock      &kp C_BRI_DN    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP    &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS
+            &bt_hold BT_CLR &out_hold OUT_TOG 0 &ind_bat        &ind_con        &studio_unlock      &kp C_BRI_DN    &kp C_VOL_DN    &kp C_VOL_UP    &kp C_BRI_UP    &kp C_AC_DESKTOP_SHOW_ALL_WINDOWS
             &boot_hold 0 0  &reset_hold 0 0 &none           &none           &off_hold 0 0       &kp LG(LS(N5))  &kp LC(LEFT)    &kp LC(RIGHT)   &reset_hold 0 0 &boot_hold 0 0
                                                             &trans          &trans              &trans          &trans
             >;

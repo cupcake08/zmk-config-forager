@@ -28,15 +28,19 @@ python3 docs/keymap_sheet.py
 | Layer | How | What |
 | --- | --- | --- |
 | Base | — | Colemak, `'` top right, home-row ⌃ ⌥ ⌘ on R S T / N E I |
-| Caps | tap left inner thumb twice | caps word; Space, Enter or the shift thumb ends it |
+| Caps | tap the ⇧ thumb twice | caps word; Space, Enter or the ⇧ thumb ends it |
 | Nav | hold Space | arrows, line/word jumps, page, scroll, clicks, held mods |
-| Sym | hold Enter | digits, shifted digits, ``` ` ``` ``` `` ` `` ``` code fence, `: ; ~ - = [ ] \` |
-| AI | hold Backspace | tabs, clipboard, ⌘Tab switcher, agent keys (Esc, ⇧Tab, ⌃C, ⌃V image, Esc Esc, ⌃R, ⇧⏎, ⌘⏎), dictation |
-| Fn | hold Backspace + Space | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
+| Sym | hold Enter | digits, shifted digits, ``` ` ``` ``` `` ` `` ``` code fence, `_ \| ~ - = [ ] \` |
+| AI | hold the ⇧ thumb (¼ s) | tabs, clipboard, ⌘Tab switcher, agent keys (Esc, ⇧Tab, ⌃C, ⌃V image, Esc Esc, ⌃R, ⇧⏎, ⌘⏎), dictation |
+| Fn | hold ⇧, then the right inner thumb | Bluetooth, media, brightness, Mission Control, power, reset, bootloader |
 
 Combos: W+F Esc, F+P Tab, Z+X cut, X+C copy, C+V paste, `,`+`.` `;`, `.`+`/` `:`.
 
-App switcher: hold the AI thumb, tap T to step forward (S steps back), release
+Thumbs, left to right: ⌫ (hold repeats, ⇧⌫ deletes a word), ⇧ (tap for one
+capital, hold for AI), Enter (hold for Sym), Space (hold for Nav). While AI is held
+the right thumbs are Space (hold for Fn) and ⌘⌫ (delete line); so is the ⌫ key.
+
+App switcher: hold the ⇧ thumb, tap T to step forward (S steps back), release
 the thumb to switch.
 
 Dictation key: set System Settings › Keyboard › Dictation › Shortcut to
@@ -50,17 +54,21 @@ firmware handles power instead.
 | State | How you get there | How you leave it | Battery use |
 | --- | --- | --- | --- |
 | Idle | 30 s without a key press | Any key, instantly | Low; Bluetooth stays connected |
-| Deep sleep | 30 min without a key press, automatic | Any key; reconnects in a few seconds | Very low |
+| Deep sleep | 15 min without a key press, automatic | Any key; reconnects in a few seconds | Very low |
 | Off (soft off) | Fn + B held 1 s; both halves go off | Inner thumb key on each half | Lowest, close to a real switch |
 
 - Day to day you never need to do anything: walk away and the halves sleep on their own.
 - Use **off** when the keyboard goes in a bag or won't be used for days. In deep
   sleep any squeezed key wakes it; when it's off only the inner thumb keys do.
-- Fn = hold the Backspace and Space thumbs together.
+- Fn = hold the ⇧ thumb, then hold the right inner thumb.
 
 Reset and bootloader keys (Fn layer, hold 1 s): left half Z bootloader, X reset;
 right half `/` bootloader, `.` reset. A right-half key only works while the two
 halves are connected. If a half is unreachable, double-tap the XIAO reset button.
+Bluetooth clear (Fn + A) and the USB/Bluetooth toggle (Fn + R) also need a 1 s hold.
+
+After a firmware crash a half restarts by itself (`src/fatal_reboot.c`) instead of
+freezing, since the reset buttons can't be reached in the case.
 
 ## Flashing
 

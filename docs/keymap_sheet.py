@@ -22,16 +22,16 @@ LAYERS = [
         ["A", ("R", "⌃ hold", "md"), ("S", "⌥ hold", "md"), ("T", "⌘ hold", "md"), "D",
          "H", ("N", "⌘ hold", "md"), ("E", "⌥ hold", "md"), ("I", "⌃ hold", "md"), "O"],
         ["Z", "X", "C", "V", "B", "K", "M", (",", "<"), (".", ">"), ("/", "?")],
-        [("⌫", "hold AI", "ly-ai"), ("⇧", "2× caps", "md"), ("⏎", "hold Sym", "ly-sym"), ("Space", "hold Nav", "ly-nav")],
+        [("⌫", "hold repeats"), ("⇧", "hold AI", "ly-ai"), ("⏎", "hold Sym", "ly-sym"), ("Space", "hold Nav", "ly-nav")],
     ]),
-    ("AI", "hold ⌫ thumb", "ai", [
+    ("AI", "hold ⇧ thumb", "ai", [
         [("⌘W", "close tab", "br"), ("⌘⇧[", "prev tab", "br"), ("⌘⇧]", "next tab", "br"), ("⌘T", "new tab", "br"), ("⌘⇧T", "reopen", "br"),
          ("⌘[", "back", "br"), ("⌘]", "forward", "br"), ("↑", "last prompt", "ag"), ("⌘⇧Z", "redo"), ("⌘R", "reload", "br")],
         [("⌘A", "select all"), ("Esc", "stop agent", "ag"), ("⇧Tab", "mode / app ←", "ag"), ("⌘Tab", "app →", "ag"), ("⌘`", "window"),
          ("⌃C", "cancel", "ag"), ("⌘⏎", "send", "ag"), ("↓", "next prompt", "ag"), ("⌃V", "paste image", "ag"), ("⌘K", "palette")],
         [("⌘Z", "undo"), ("⌘X", "cut"), ("⌘C", "copy"), ("⌘V", "paste"), ("⌘⌃⇧4", "snip", "ag"),
          ("Esc Esc", "rewind", "ag"), ("⌃R", "history", "ag"), ("⇧⏎", "newline", "ag"), ("⌘Space", "launcher"), ("Dictate", "voice", "ag")],
-        [("", "held", "hd"), ("⇧", ""), ("⌘⌫", "delete line"), ("Space", "hold: Fn", "ly-fn")],
+        [("⌘⌫", "delete line"), ("", "held", "hd"), ("Space", "hold: Fn", "ly-fn"), ("⌘⌫", "delete line")],
     ]),
     ("Nav", "hold Space thumb", "nav", [
         [("Esc",), ("⌘[", "back", "br"), ("Scroll", "up", "br"), ("⌘]", "forward", "br"), None,
@@ -40,21 +40,21 @@ LAYERS = [
          ("PgDn",), ("←",), ("↓",), ("→",), ("⏎",)],
         [None, ("Click", "left"), ("Scroll", "down", "br"), ("Click", "right"), None,
          ("⌘↑", "top"), ("⌥←", "word"), ("⌘↓", "bottom"), ("⌥→", "word"), None],
-        [("⌫", "hold: Fn", "ly-fn"), ("⇧", ""), None, ("", "held", "hd")],
+        [("⌫", ""), ("⇧", "hold: Fn", "ly-fn"), None, ("", "held", "hd")],
     ]),
     ("Sym", "hold ⏎ thumb", "sym", [
         ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
         ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"],
-        ["`", ("```", "code block"), ":", ";", "~", "-", "=", "[", "]", "\\"],
+        ["`", ("```", "code block"), "_", "|", "~", "-", "=", "[", "]", "\\"],
         [("⌫", ""), ("⇧", ""), ("", "held", "hd"), None],
     ]),
-    ("Fn", "hold ⌫ + Space", "fn", [
+    ("Fn", "hold ⇧, then right inner", "fn", [
         [("BT 1",), ("BT 2",), ("BT 3",), ("BT 4",), ("BT 5",), ("⏮",), ("⏯",), ("⏭",), ("Mute",), ("Lock", "⌃⌘Q")],
-        [("BT clear",), ("USB/BT",), ("Battery", "LED"), ("Link", "LED"), ("Studio", "unlock"),
+        [("BT clear", "1 s", "dn"), ("USB/BT", "1 s", "dn"), ("Battery", "LED"), ("Link", "LED"), ("Studio", "unlock"),
          ("Bright −",), ("Vol −",), ("Vol +",), ("Bright +",), ("Mission", "Control")],
         [("Boot", "left · 1 s", "dn"), ("Reset", "left · 1 s", "dn"), None, None, ("Power off", "both · 1 s", "dn"),
          ("⌘⇧5", "screenshot"), ("⌃←", "space"), ("⌃→", "space"), ("Reset", "right · 1 s", "dn"), ("Boot", "right · 1 s", "dn")],
-        [("", "held", "hd"), None, None, ("", "held", "hd")],
+        [None, ("", "held", "hd"), ("", "held", "hd"), None],
     ]),
 ]
 
@@ -108,17 +108,17 @@ INFO = """
   </div>
   <h3>Power <span>no switch: sleep is automatic, off is a key</span></h3>
   <table>
-    <tr><td><span class="pill">30 min idle</span></td><td>Each half sleeps by itself. Any key wakes it.</td></tr>
+    <tr><td><span class="pill">15 min idle</span></td><td>Each half sleeps by itself. Any key wakes it.</td></tr>
     <tr><td><span class="pill dn">Fn + B</span></td><td>Hold 1 s: both halves fully off (bag, travel).</td></tr>
     <tr><td><span class="pill">inner thumbs</span></td><td>Press the inner thumb key on each half to turn it on.</td></tr>
   </table>
-  <h3>Flashing <span>Fn = hold ⌫ and Space thumbs, then hold the key 1 s</span></h3>
+  <h3>Flashing <span>Fn = hold ⇧, then the right inner thumb; hold the key 1 s</span></h3>
   <table>
     <tr><td><span class="pill dn">Fn + Z</span></td><td>Bootloader, left</td><td><span class="pill dn">Fn + /</span></td><td>Bootloader, right</td></tr>
     <tr><td><span class="pill dn">Fn + X</span></td><td>Reset, left</td><td><span class="pill dn">Fn + .</span></td><td>Reset, right</td></tr>
   </table>
   <p>Bootloader mounts <b>XIAO-SENSE</b>: copy that half's <b>.uf2</b> onto it.
-  App switcher: hold <b>⌫</b>, tap <b>T</b> (<b>S</b> back), release.
+  App switcher: hold <b>⇧</b>, tap <b>T</b> (<b>S</b> back), release.
   Mac: keep the <b>Colemak</b> input source; dictation shortcut <b>Right ⌘ twice</b>.</p>
 </section>"""
 
